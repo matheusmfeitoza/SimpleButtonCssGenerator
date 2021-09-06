@@ -4,7 +4,7 @@ This is a simple CSS Generator
 
 ## How to use
 
-Open [these link](https://matheusmfeitoza.github.io)]
+Open [these link](https://matheusmfeitoza.github.io/SimpleButtonCssGenerator/)
 
 Select your button preferences and copy the code.
 
