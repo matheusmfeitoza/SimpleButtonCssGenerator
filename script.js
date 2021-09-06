@@ -1,6 +1,7 @@
 const form = document.getElementById('controles');
 const resultado = document.querySelector('.css');
 const btn = document.querySelector('.btn');
+const btn2 = document.querySelector('.btn2')
 
 const handleEvents = {
     element: btn,
@@ -39,10 +40,32 @@ function handleChange(event){
 
     handleEvents[name](valor);
     getValuesCss()
+    saveValues(name,valor)
 }
+
+function saveValues(name,value){
+    localStorage[name] = value
+}
+
+function setLocalStorageValues(){
+    const propriedades = Object.keys(localStorage)
+    propriedades.forEach(propriedade =>{
+        form.elements[propriedade].value = localStorage[propriedade]
+        handleEvents[propriedade](localStorage[propriedade])
+    })
+    getValuesCss()
+}
+setLocalStorageValues()
 
 form.addEventListener('change',handleChange);
 
 function getValuesCss(){
    resultado.innerHTML = '<span>' + btn.style.cssText.split('; ').join('</span><span>')
 }
+
+function clearValuesStorage(){
+    localStorage.clear();
+    window.location.reload()
+}
+
+btn2.addEventListener('click',clearValuesStorage);
